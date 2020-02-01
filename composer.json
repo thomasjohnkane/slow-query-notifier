@@ -1,0 +1,55 @@
+{
+    "name": "thomasjohnkane/slow-query-notifier",
+    "description": "Listen to your app's queries and be alerted when queries pass your threshold",
+    "keywords": [
+        "thomasjohnkane",
+        "slow-query-notifier"
+    ],
+    "homepage": "https://github.com/thomasjohnkane/slow-query-notifier",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Thomas Kane",
+            "email": "thomasjohnkane@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3",
+        "illuminate/support": "5.8.*|^6.0",
+        "laravel/tinker": "^2.1"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SlowQueryNotifier\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SlowQueryNotifer\\RenameMeServiceProvider"
+            ],
+            "aliases": {
+                "SlowQueryNotifer": "SlowQueryNotifer\\SlowQueryNotiferFacade"
+            }
+        }
+    }
+}

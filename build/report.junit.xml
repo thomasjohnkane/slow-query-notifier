@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Test Suite" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.175974">
+    <testsuite name="Tests\SlowQueryNotifierTest" file="/Users/thomaskane/Sites/slow-query-notifier/tests/SlowQueryNotifierTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.175974">
+      <testcase name="artisan_command_sends_test_email" class="Tests\SlowQueryNotifierTest" classname="Tests.SlowQueryNotifierTest" file="/Users/thomaskane/Sites/slow-query-notifier/tests/SlowQueryNotifierTest.php" line="59" assertions="1" time="0.175974"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
