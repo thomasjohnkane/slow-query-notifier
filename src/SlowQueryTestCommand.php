@@ -17,17 +17,16 @@ class SlowQueryTestCommand extends Command
 
     public function handle()
     {
-        Notification::fake();
+        if (!app(SlowQueryNotifier::class)->getThreshold() OR !app(SlowQueryNotifier::class)->getEmail()) {
+            $this->error('No email or threshold set. Please set in your AppServiceProvider.php');
 
-        $connection = app(SlowQueryNotifier::class)->getSqnConnection();
-        $sleep = app(SlowQueryNotifier::class)->getThreshold() + 1;
-        $result = $connection->select(\DB::raw("SELECT sleep($sleep)"));
-        $notifiable = (new AnonymousNotifiable)->route('email', 'amdin@example.dev');
-
-        if (!Notification::hasSent($notifiable, SlowQueryNotification::class)) {
-            Log::info('notification not sent...');
-            $this->error('Error: Not able to send notification...');
-            throw new \Exception("Error sending SlowQueryNotification", 1);
+            return false;
         }
+
+        app(SlowQueryNotifier::class)->shouldThrowExceptions();
+        $connection = app(SlowQueryNotifier::class)->getTemporaryConnectionWithSleepFunction();
+        $sleep = app(SlowQueryNotifier::class)->getThreshold() + 10;
+        $result = $connection->select(\DB::raw("SELECT sleep($sleep)"));
+        $this->info('You should have received an email at: '.app(SlowQueryNotifier::class)->getEmail().'. If you do not receive it in 5 minutes, then email is not configured properly');
     }
 }

@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Test Suite" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.175974">
-    <testsuite name="Tests\SlowQueryNotifierTest" file="/Users/thomaskane/Sites/slow-query-notifier/tests/SlowQueryNotifierTest.php" tests="1" assertions="1" errors="0" warnings="0" failures="0" skipped="0" time="0.175974">
-      <testcase name="artisan_command_sends_test_email" class="Tests\SlowQueryNotifierTest" classname="Tests.SlowQueryNotifierTest" file="/Users/thomaskane/Sites/slow-query-notifier/tests/SlowQueryNotifierTest.php" line="59" assertions="1" time="0.175974"/>
+  <testsuite name="Test Suite" tests="5" assertions="5" errors="0" warnings="0" failures="0" skipped="0" time="0.556822">
+    <testsuite name="Tests\SlowQueryNotifierTest" file="/Users/thomaskane/Sites/slow-query-notifier/tests/SlowQueryNotifierTest.php" tests="5" assertions="5" errors="0" warnings="0" failures="0" skipped="0" time="0.556822">
+      <testcase name="queries_slower_than_given_threshold_send_email" class="Tests\SlowQueryNotifierTest" classname="Tests.SlowQueryNotifierTest" file="/Users/thomaskane/Sites/slow-query-notifier/tests/SlowQueryNotifierTest.php" line="15" assertions="1" time="0.153046"/>
+      <testcase name="queries_faster_than_given_threshold_dont_send_email" class="Tests\SlowQueryNotifierTest" classname="Tests.SlowQueryNotifierTest" file="/Users/thomaskane/Sites/slow-query-notifier/tests/SlowQueryNotifierTest.php" line="30" assertions="1" time="0.013548"/>
+      <testcase name="slow_query_notifier_will_supress_mail_related_errors_in_order_to_not_blow_up_production" class="Tests\SlowQueryNotifierTest" classname="Tests.SlowQueryNotifierTest" file="/Users/thomaskane/Sites/slow-query-notifier/tests/SlowQueryNotifierTest.php" line="45" assertions="1" time="0.124203"/>
+      <testcase name="artisan_command_sends_test_email" class="Tests\SlowQueryNotifierTest" classname="Tests.SlowQueryNotifierTest" file="/Users/thomaskane/Sites/slow-query-notifier/tests/SlowQueryNotifierTest.php" line="59" assertions="1" time="0.146566"/>
+      <testcase name="artisan_command_throws_error_if_test_email_cannot_send" class="Tests\SlowQueryNotifierTest" classname="Tests.SlowQueryNotifierTest" file="/Users/thomaskane/Sites/slow-query-notifier/tests/SlowQueryNotifierTest.php" line="72" assertions="1" time="0.119459"/>
     </testsuite>
   </testsuite>
 </testsuites>

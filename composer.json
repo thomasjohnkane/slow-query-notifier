@@ -45,7 +45,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SlowQueryNotifer\\RenameMeServiceProvider"
+                "SlowQueryNotifier\\SlowQueryNotifierProvider"
             ],
             "aliases": {
                 "SlowQueryNotifer": "SlowQueryNotifer\\SlowQueryNotiferFacade"

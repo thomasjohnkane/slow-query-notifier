@@ -15,7 +15,7 @@ class SlowQueryNotifierTest extends TestCase
     public function queries_slower_than_given_threshold_send_email()
     {
         $this->clearDatabase();
-        $connection = SlowQueryNotifier::getSqnConnection();
+        $connection = SlowQueryNotifier::getTemporaryConnectionWithSleepFunction();
 
         Notification::fake();
         SlowQueryNotifier::threshold(99)->toEmail('amdin@example.dev');
@@ -30,7 +30,7 @@ class SlowQueryNotifierTest extends TestCase
     public function queries_faster_than_given_threshold_dont_send_email()
     {
         $this->clearDatabase();
-        $connection = SlowQueryNotifier::getSqnConnection();
+        $connection = SlowQueryNotifier::getTemporaryConnectionWithSleepFunction();
 
         Notification::fake();
         SlowQueryNotifier::threshold(100)->toEmail('amdin@example.dev');
@@ -45,7 +45,7 @@ class SlowQueryNotifierTest extends TestCase
     public function slow_query_notifier_will_supress_mail_related_errors_in_order_to_not_blow_up_production()
     {
         $this->clearDatabase();
-        $connection = SlowQueryNotifier::getSqnConnection();
+        $connection = SlowQueryNotifier::getTemporaryConnectionWithSleepFunction();
         SlowQueryNotifier::threshold(99);
 
         // This non existent driver will blowup mail notification
@@ -77,5 +77,9 @@ class SlowQueryNotifierTest extends TestCase
         app()['config']->set('mail.driver', 'non_existent_driver');
         $this->expectException(\Exception::class);
         \Artisan::call('sqn:test');
+    }
+    public function threshold_and_email_set_in_service_provider() {
+        $this->expectException(\Exception::class);
+        $this->artisan('sqn:test')->expectsOutput('No email or threshold set. Please set in your AppServiceProvider.php')->run();
     }
 }
