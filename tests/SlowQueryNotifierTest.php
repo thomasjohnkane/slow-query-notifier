@@ -20,7 +20,7 @@ class SlowQueryNotifierTest extends TestCase
         Notification::fake();
         SlowQueryNotifier::threshold(99)->toEmail('amdin@example.dev');
 
-        $result = \DB::connection('sqn')->select(\DB::raw('SELECT sleep(100)'));
+        $result = $connection->select(\DB::raw('SELECT sleep(100)'));
         $notifiable = (new AnonymousNotifiable)->route('email', 'amdin@example.dev');
 
         Notification::assertSentTo($notifiable, SlowQueryNotification::class);

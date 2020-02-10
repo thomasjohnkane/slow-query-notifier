@@ -13,10 +13,10 @@
 - Handle errors silently (catch statement, logging)
 
 # Steps
-[X] Install orchestra testbench (Laravel Collective)
-[X] Build tests
-[] Benchmark performance impact (seed data with package, and without...laravel start time diff??)
-[] Branding/marketing planning with Caleb
-[] Update Readme
+- [X] Install orchestra testbench (Laravel Collective)
+- [X] Build tests
+- [ ] Benchmark performance impact (seed data with package, and without...laravel start time diff??)
+- [ ] Branding/marketing planning with Caleb
+- [ ] Update Readme
 
 

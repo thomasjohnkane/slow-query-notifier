@@ -19,7 +19,6 @@ class SlowQueryNotifierProvider extends ServiceProvider
     public function boot()
     {
         if (config('slow_query_notifier.enabled', true)) {
-            Log::info('Enabled...');
             \DB::listen(function ($query) {
                 app(SlowQueryNotifier::class)->checkQuery($query);
             });
