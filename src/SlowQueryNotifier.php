@@ -42,7 +42,7 @@ class SlowQueryNotifier
         if ($query->time > $this->threshold) {
             try {
                 Notification::route('mail', $this->email)
-                    ->notify(new SlowQueryNotification());
+                    ->notify(new SlowQueryNotification($query));
             } catch (\Exception $e) {
                 if ($this->throwsExceptions) {
                     throw $e;
