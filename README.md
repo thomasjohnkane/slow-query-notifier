@@ -40,13 +40,13 @@ In general, we setup all of the configuration for you with sensible defaults. Ho
 
 The default is 99ms. Set a different `threshold` in milliseconds in your configuration:
 ```bash
-    SlowQueryNotifier::threshold(200)->toEmail('admin@example.com');
+SlowQueryNotifier::threshold(200)->toEmail('admin@example.com');
 ```
 ### Enable/Disable
 
 The package is enabled by default. Set this value to `false` in your `.env` to bypass the listener.
 ```bash
-    SLOW_QUERY_NOTIFIER_ENABLED=false
+SLOW_QUERY_NOTIFIER_ENABLED=false
 ```
 ### Testing
 
