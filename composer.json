@@ -1,6 +1,6 @@
 {
     "name": "thomasjohnkane/slow-query-notifier",
-    "description": "Listen to your app's queries and be alerted when queries pass your threshold",
+    "description": "Get notified if your Laravel app ever runs an objectively slow database call (configurable threshold)",
     "keywords": [
         "thomasjohnkane",
         "slow-query-notifier"
