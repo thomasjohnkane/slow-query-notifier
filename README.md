@@ -1,11 +1,8 @@
 # Slow Query Notifier for Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/thomasjohnkane/slow-query-notifier.svg?style=flat-square)](https://packagist.org/packages/thomasjohnkane/slow-query-notifier)
-[![Build Status](https://img.shields.io/travis/thomasjohnkane/slow-query-notifier/master.svg?style=flat-square)](https://travis-ci.org/thomasjohnkane/slow-query-notifier)
-[![Quality Score](https://img.shields.io/scrutinizer/g/thomasjohnkane/slow-query-notifier.svg?style=flat-square)](https://scrutinizer-ci.com/g/thomasjohnkane/slow-query-notifier)
-[![Total Downloads](https://img.shields.io/packagist/dt/thomasjohnkane/slow-query-notifier.svg?style=flat-square)](https://packagist.org/packages/thomasjohnkane/slow-query-notifier)
 
-Get notified if your app ever runs an objectively slow database call.
+Get notified if your app ever runs an objectively slow database call. We set a default threshold, but you can configure it based on your needs & expectations.
 
 ## Installation
 
@@ -17,18 +14,18 @@ composer require thomasjohnkane/slow-query-notifier
 ## Usage
 ### Set an email address
 ```bash
-    // app/Providers/AppServiceProvider.php
+// app/Providers/AppServiceProvider.php
 
-    use SlowQueryNotifier\SlowQueryNotifierFacade as SlowQueryNotifier;
+use SlowQueryNotifier\SlowQueryNotifierFacade as SlowQueryNotifier;
 
-    public function boot()
-    {
-        SlowQueryNotifier::toEmail('admin@example.com');
-    }
+public function boot()
+{
+    SlowQueryNotifier::toEmail('admin@example.com');
+}
 ```
 ## Test it works
 ```bash
-    php artisan sqn:test
+php artisan sqn:test
 ```
 This command will test two things:
 
