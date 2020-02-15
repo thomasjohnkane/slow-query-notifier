@@ -23,7 +23,7 @@ public function boot()
     SlowQueryNotifier::toEmail('admin@example.com');
 }
 ```
-## Test it works
+### Test it works
 ```bash
 php artisan sqn:test
 ```
@@ -32,11 +32,11 @@ This command will test two things:
 - We can detect slow queries in your app
 - We can send an email to you if a slow query runs
 
-# Configuration
+## Configuration
 
 In general, we setup all of the configuration for you with sensible defaults. However, you can change the default settings if you'd like. To learn why we chose these defaults, <a href="#">read the blog post</a>.
 
-## Threshold
+### Threshold
 
 The default is 99ms. Set a different `threshold` in milliseconds in your configuration:
 ```bash
@@ -48,13 +48,13 @@ The package is enabled by default. Set this value to `false` in your `.env` to b
 ```bash
 SLOW_QUERY_NOTIFIER_ENABLED=false
 ```
-### Testing
+## Testing
 
 ``` bash
 phpunit
 ```
 
-### Changelog
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
@@ -62,7 +62,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
-### Security
+## Security
 
 If you discover any security related issues, please email thomasjohnkane@gmail.com instead of using the issue tracker.
 
