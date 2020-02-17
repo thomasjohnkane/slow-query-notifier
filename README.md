@@ -13,7 +13,7 @@ composer require thomasjohnkane/slow-query-notifier
 ```
 ## Usage
 ### Set an email address
-```bash
+```php
 // app/Providers/AppServiceProvider.php
 
 use SlowQueryNotifier\SlowQueryNotifierFacade as SlowQueryNotifier;
@@ -23,7 +23,8 @@ public function boot()
     SlowQueryNotifier::toEmail('admin@example.com');
 }
 ```
-### Test it works
+### Test it works (in Production)
+If you are using this in production (as intendend) make sure it is working correctly:
 ```bash
 php artisan sqn:test
 ```
@@ -39,7 +40,7 @@ In general, we setup all of the configuration for you with sensible defaults. Ho
 ### Threshold
 
 The default is 99ms. Set a different `threshold` in milliseconds in your configuration:
-```bash
+```php
 SlowQueryNotifier::threshold(200)->toEmail('admin@example.com');
 ```
 ### Enable/Disable
