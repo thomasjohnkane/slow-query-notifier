@@ -1,6 +1,6 @@
 # Slow Query Notifier for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/thomasjohnkane/slow-query-notifier.svg?style=flat-square)](https://packagist.org/packages/thomasjohnkane/slow-query-notifier)
+<!-- [![Latest Version on Packagist](https://img.shields.io/packagist/v/thomasjohnkane/slow-query-notifier.svg?style=flat-square)](https://packagist.org/packages/thomasjohnkane/slow-query-notifier) -->
 
 Get notified if your app ever runs an objectively slow database call. We set a default threshold, but you can configure it based on your needs & expectations.
 
