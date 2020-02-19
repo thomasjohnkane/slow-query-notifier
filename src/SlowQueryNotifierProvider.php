@@ -11,21 +11,27 @@ class SlowQueryNotifierProvider extends ServiceProvider
     {
         $this->app->singleton(SlowQueryNotifier::class);
 
-        if ($this->app['config']->get('slow_query_notifier') === null) {
-            $this->app['config']->set('slow_query_notifier', require __DIR__.'/../config/config.php');
-        }
+        $this->mergeConfigFrom(
+            __DIR__.'/../config/config.php', 'slow-query-notifier'
+        );
     }
 
     public function boot()
     {
-        if (config('slow_query_notifier.enabled', true)) {
-            \DB::listen(function ($query) {
-                app(SlowQueryNotifier::class)->checkQuery($query);
-            });
+        $this->publishes([
+            __DIR__.'/../config/config.php' => config_path('slow-query-notifier.php'),
+        ]);
+        
+        if (!config('slow_query_notifier.enabled', true)) {
+            return;
+        }
+        
+        \DB::listen(function ($query) {
+            app(SlowQueryNotifier::class)->checkQuery($query);
+        });
 
-            if ($this->app->runningInConsole()) {
-                $this->commands([SlowQueryTestCommand::class]);
-            }
+        if ($this->app->runningInConsole()) {
+            $this->commands([SlowQueryTestCommand::class]);
         }
     }
 }
